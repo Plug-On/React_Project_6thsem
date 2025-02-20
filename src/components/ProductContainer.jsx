@@ -1,5 +1,5 @@
 import React from "react"
-import ProducCard from "./ProductCard"
+import ProductCard from "./ProductCard"
 
 
 function ProductContainer (){
