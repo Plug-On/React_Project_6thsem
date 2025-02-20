@@ -1,4 +1,4 @@
-import logo from '../assets/logo.gif';
+import logo from '../assets/logo.png';
 function Navbar(){
     return(
         <div>
