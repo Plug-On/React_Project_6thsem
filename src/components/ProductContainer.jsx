@@ -3,14 +3,43 @@ import ProductCard from "./ProductCard"
 
 
 function ProductContainer (){
+      const products =[
+        {
+        id:1,
+        productname:"Product 1",
+        description:"bhaike khate me likh liyo",
+        price:100,
+        image:"https://picsum.photos/200"
+      },
+      {
+        id:2,
+        productname:"Product 2",
+        description:"hehehehe",
+        price:200,
+        image:"https://picsum.photos/201"
+      },
+      {
+        id:3,
+        productname:"Product 3",
+        description:"bhaike khate me likh liyo",
+        price:300,
+        image:"https://picsum.photos/202"
+      },
+      {
+        id:4,
+        productname:"Product 4",
+        description:"bhaike khate me likh liyo",
+        price:400,
+        image:"https://picsum.photos/203"
+      }]
     return (
         <>
             <div>
                 <div className="grid grid-cols-4 gap-4 px-20 py-10">
-                <ProducCard/>
-                <ProducCard/>
-                <ProducCard/>
-                <ProducCard/>
+                {
+                    products.map((product) =>(
+                        <ProductCard key={product.id} product={product}/>
+                ))}
 
                 </div>
                 
