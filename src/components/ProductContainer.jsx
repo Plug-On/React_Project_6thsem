@@ -35,7 +35,8 @@ function ProductContainer (){
     return (
         <>
             <div>
-                <div className="grid grid-cols-4 gap-4 px-20 py-10">
+            <h1 className=" text-center text-2xl font-bold mt-4">Our Products</h1>
+                <div className="grid grid-cols-4 gap-4 px-20 py-5">
                 {
                     products.map((product) =>(
                         <ProductCard key={product.id} product={product}/>
