@@ -6,7 +6,7 @@ function Footer() {
         <div className='grid grid-cols-3 gap-4 bg-blue-600 text-white py-10 px-24'>
             <div>
                 <h1 className='text-2xl font-bold'>About Us</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, magnam?</p>
+                <p>Service dey aisa sara duniya khulke de paisa</p>
             </div>
             <div>
                 <h1 className='text-2xl font-bold'>Services</h1>
