@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar'
 import ProductContainer from './components/ProductContainer'
 import ServiceContianer from './components/ServiceContainer'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
       <Navbar/>
       <ProductContainer/>
       <ServiceContianer/>
+      <Footer/>
     </>
   )
 }
