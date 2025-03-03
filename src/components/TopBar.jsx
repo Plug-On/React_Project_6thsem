@@ -1,4 +1,4 @@
-import { RiCustomerService2Line, RiFacebookBoxFill, RiInstagramFill, RiPhoneFill, RiPinterestFill, RiTwitterFill, RiUserLocationFill } from "react-icons/ri"
+import {  RiFacebookBoxFill, RiInstagramFill, RiPhoneFill, RiPinterestFill, RiTwitterFill, RiUserLocationFill } from "react-icons/ri"
 
 
 const TopBar = () => {
