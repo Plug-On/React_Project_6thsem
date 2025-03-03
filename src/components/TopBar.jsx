@@ -13,11 +13,11 @@ const TopBar = () => {
                <div className="flex gap-3" >
                   <div className="flex gap-1 items-center">
                   <RiPhoneFill className="text-white"/>
-                  <p className="text-white font-bold">056-123456</p>
+                  <p className="text-white font-semibold">056-123456</p>
                   </div>
                   <div className="flex gap-1 items-center">
                   <RiUserLocationFill className="text-white"/>
-                  <p className="text-white font-bold">Pradip  from bharatpur</p>
+                  <p className="text-white font-semibold">Pradip  from bharatpur</p>
                   </div>
                </div>
                     
