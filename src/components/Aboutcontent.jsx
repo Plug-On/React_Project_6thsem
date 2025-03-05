@@ -1,6 +1,6 @@
 import React from "react";
 
-function Aboutcontent(){
+function AboutContent(){
     return(
        
             <div className="flex py-10 px-24 ">
@@ -17,4 +17,4 @@ function Aboutcontent(){
     );
 }
 
-export default Aboutcontent
+export default AboutContent

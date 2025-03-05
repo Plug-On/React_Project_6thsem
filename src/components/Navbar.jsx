@@ -1,5 +1,5 @@
 import logo from '../assets/logo.png';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 function Navbar(){
     return(
         <div>
@@ -8,13 +8,17 @@ function Navbar(){
                 <img src={logo} alt="" className="h-20" />
                 <ul className="flex justify-center space-x-4">
                     <li>
-                        <Link to='/' className="text-blue-500">Home</Link>
+                        <NavLink to='/' className={({isActive}) => isActive ? "text-red-500 font-bold" : "text-blue-500"}>Home</NavLink>
                     </li>
                     <li>                        
-                        <Link to='/about' className="text-blue-500">About</Link>
+                        <NavLink to='/about' className={({isActive}) => isActive ? "text-red-500 font-bold" : "text-blue-500"}>About</NavLink>
                     </li>
-                    <li><a href="#" className="text-blue-500">Services</a></li>
-                    <li><a href="#" className="text-blue-500">Contacts</a></li>
+                    <li>
+                        <NavLink to='/services' className={({isActive}) => isActive ? "text-red-500 font-bold" : "text-blue-500"}>Services</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/contacts" className={({isActive}) => isActive ? "text-red-500 font-bold" : "text-blue-500"}>Contacts</NavLink>
+                    </li>
 
                 </ul>
             </nav>

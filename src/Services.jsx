@@ -1,17 +1,17 @@
 
-import TopBar from './components/TopBar'
 import Navbar from './components/Navbar'
+import TopBar from './components/TopBar'
 import Footer from './components/Footer'
-import AboutContent from './components/AboutContent'
-function About() {
+import ServiceContianer from './components/ServiceContainer'
+function Services() {
   return (
     <div>
         <TopBar/>
         <Navbar/>
-        <AboutContent/>
+        <ServiceContianer/>
         <Footer/>
     </div>
   )
 }
 
-export default About
+export default Services
