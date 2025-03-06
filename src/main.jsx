@@ -6,6 +6,7 @@ import { BrowserRouter as Router ,Route ,Routes} from 'react-router-dom'
 import About from './About.jsx'
 import Services from './Services.jsx'
 import Contacts from './Contacts.jsx'
+import SingleProduct from './SingleProduct.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -15,6 +16,8 @@ createRoot(document.getElementById('root')).render(
         <Route path='/about' element={<About/>}/>
         <Route path='/services' element={<Services/>}/>
         <Route path='/contacts' element={<Contacts/>}/>
+        <Route path='/singleproduct' element={<SingleProduct/>}/>
+
 
       </Routes>
     </Router> 
