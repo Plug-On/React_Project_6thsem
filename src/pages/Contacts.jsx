@@ -1,7 +1,7 @@
 
-import TopBar from './components/TopBar'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
+import TopBar from '../components/TopBar'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 function Contacts() {
   return (
     <div>

@@ -1,3 +1,5 @@
+import ProductContainer from "./ProductContainer"
+
 
 function EventCard({ event })
 {

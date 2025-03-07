@@ -1,10 +1,21 @@
-import React from 'react'
-import TopBar  from './components/TopBar'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
+
+import TopBar  from '../components/TopBar'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import { Ri24HoursFill, RiBankCard2Fill, RiShoppingCart2Fill, RiStarFill, RiTruckFill, RiVerifiedBadgeFill } from 'react-icons/ri'
+import { useState } from 'react'
 
 function SingleProduct() {
+    const[qty,setQty] = useState(1)
+    const increment = () => {
+        setQty (qty+1)
+    }
+    const decrement = () => {
+        if(qty>1)
+            {
+        setQty (qty-1)
+    }
+    }
   return (
     <div>
         <TopBar/>
@@ -28,17 +39,17 @@ function SingleProduct() {
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium nihil reprehenderit corporis obcaecati similique debitis? Quis, vel. A asperiores quam, porro tempore consequuntur dicta minus impedit maxime corrupti ea non!
                 </p>
                 <div className='flex items-center py-2'>
-                    <button className='bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded'>-</button>
-                    <p className='px-4'>1</p>
-                    <button className='bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded'>+</button>
+                    <button onClick={decrement} className='bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded'>-</button>
+                    <p className='px-4'>{qty}</p>
+                    <button onClick={increment} className='bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded'>+</button>
                 </div>
                 <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center gap-2'><RiShoppingCart2Fill/> Add to Cart</button>
             </div>
             <div className='border-l border-gray-200 pl-2 text-gray-700'>
-                <p className='flex items-center gap-2'><RiTruckFill /> Free Delivery </p>
-                <p className='flex items-center gap-2'><Ri24HoursFill /> 24/7 Support </p>
-                <p className='flex items-center gap-2'><RiVerifiedBadgeFill /> 100% Original </p>
-                <p className='flex items-center gap-2'><RiBankCard2Fill /> Secure Payments </p>
+                <p className='flex items-center font-bold gap-2'><RiTruckFill /> Free Delivery </p>
+                <p className='flex items-center font-bold gap-2'><Ri24HoursFill /> 24/7 Support </p>
+                <p className='flex items-center font-bold gap-2'><RiVerifiedBadgeFill /> 100% Original </p>
+                <p className='flex items-center font-bold gap-2'><RiBankCard2Fill /> Secure Payments </p>
             </div>
         </div>
         <Footer />
