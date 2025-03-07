@@ -16,7 +16,7 @@ function Login() {
 
         <div className="my-5">
           <p className="text-center">
-            Don't have an account?{' '}<a href="/register" className="text-red-500 font-semibold hover:underline">Register Now</a>
+            Don`t have an account?<a href="/register" className="text-red-500 font-semibold hover:underline">Register Now</a>
           </p>
         </div>
       </div>

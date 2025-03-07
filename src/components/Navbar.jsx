@@ -1,11 +1,11 @@
 import logo from '../assets/logo.png';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 function Navbar(){
     return(
         <div>
-            <nav className="flex justify-between items-center px-15 py-2 bg-gray-100">
+            <nav className="flex justify-between items-center px-10 py-1 bg-gray-100">
             
-                <img src={logo} alt="" className="h-20" />
+                <img src={logo} alt="" className="h-10" />
                 <ul className="flex justify-center space-x-4">
                     <li>
                         <NavLink to='/' className={({isActive}) => isActive ? "text-blue-500 font-bold overline" : "text-blue-500"}>Home</NavLink>
