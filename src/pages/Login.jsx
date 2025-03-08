@@ -5,7 +5,12 @@ import Footer from '../components/Footer';
 function Login() {
   return (
     
-    <div>
+    <div className="min-h-screen flex flex-col"
+    style={{
+      backgroundImage: "url('/src/assets/login.png')",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}>
         <TopBar/>
         <Navbar/>
       <div className="flex flex-col justify-center items-center my-10 w-1/3 mx-auto bg-gray-100 px-10 py-2 rounded-lg ">
@@ -16,7 +21,7 @@ function Login() {
 
         <div className="my-5">
           <p className="text-center">
-            Don`t have an account?<a href="/register" className="text-red-500 font-semibold hover:underline">Register Now</a>
+            Don`t have an account? <a href="/register" className="text-red-500 font-semibold hover:underline">Register Now</a>
           </p>
         </div>
       </div>

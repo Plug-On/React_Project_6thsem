@@ -2,9 +2,16 @@
 import TopBar from "../components/TopBar";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+
+
 function Register() {
   return (
-    <div>
+    <div
+    style={{
+      backgroundImage: "url('/src/assets/register.png')",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}>
     <TopBar/>
     <Navbar/>
     <div className="flex justify-center items-center min-h-screen bg-gray-100">

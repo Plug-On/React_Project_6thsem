@@ -17,7 +17,7 @@ const TopBar = () => {
                   </div>
                   <div className="flex gap-1 items-center">
                   <RiUserLocationFill className="text-white"/>
-                  <p className="text-white font-semibold">Pradip  from bharatpur</p>
+                  <p className="text-white font-semibold">Bharatpur</p>
                   </div>
                </div>
                     
