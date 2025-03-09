@@ -6,12 +6,7 @@ import Footer from "../components/Footer";
 
 function Register() {
   return (
-    <div
-    style={{
-      backgroundImage: "url('/src/assets/register.png')",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-    }}>
+    <div>
     <TopBar/>
     <Navbar/>
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
@@ -70,7 +65,7 @@ function Register() {
         <div className="mt-4 text-center">
           <p className="text-gray-600">
             Already have an account?{" "}
-            <a href="/login" className="text-red-500 font-semibold hover:underline">
+            <a href="/login" className="text-blue-500 font-semibold hover:underline hover:text-red-500">
               Login Now
             </a>
           </p>

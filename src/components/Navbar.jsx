@@ -2,13 +2,13 @@ import logo from '../assets/logo.png';
 import { NavLink } from 'react-router-dom';
 function Navbar(){
     return(
-        <div>
-            <nav className="flex justify-between items-center px-10 py-1 bg-gray-100">
+        <div className='sticky top-0 z-50'>
+            <nav className="flex justify-between items-center px-10 py-1 bg-gray-100 shadow-lg">
             
                 <img src={logo} alt="" className="h-10" />
                 <ul className="flex justify-center space-x-4">
                     <li>
-                        <NavLink to='/' className={({isActive}) => isActive ? "text-blue-500 font-bold overline-bold" : "text-blue-500"}>Home</NavLink>
+                        <NavLink to='/' className={({isActive}) => isActive ? "text-blue-500 font-bold overline" : "text-blue-500"}>Home</NavLink>
                     </li>
                     <li>                        
                         <NavLink to='/about' className={({isActive}) => isActive ? "text-blue-500 font-bold overline" : "text-blue-500"}>About</NavLink>
