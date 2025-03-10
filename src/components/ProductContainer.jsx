@@ -1,8 +1,10 @@
 import React from "react"
 import ProductCard from "./ProductCard"
+import { useNavigate } from "react-router-dom"
 
 
 function ProductContainer (){
+      const navigation = useNavigate();
       const products =[
         {
         id:1,
@@ -32,6 +34,10 @@ function ProductContainer (){
         price:400,
         image:"https://picsum.photos/203"
       }]
+
+      const handleClick = (product) =>{
+        navigation(`/product/${product.id}`, {state: { product }});
+      }
     return (
         <>
             <div>
@@ -39,7 +45,7 @@ function ProductContainer (){
                 <div className="grid grid-cols-4 gap-4 px-20 py-5">
                 {
                     products.map((product) =>(
-                        <ProductCard key={product.id} product={product}/>
+                        <ProductCard key={product.id} product={product} onClick={()=>handleClick(product)}/>
                 ))}
 
                 </div>
