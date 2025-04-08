@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import logo from '../assets/logo.png';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
+
 function Navbar(){
 
     const [categories , setCategories] = useState([]);
@@ -22,16 +23,11 @@ function Navbar(){
                     <li>
                         <NavLink to='/' className={({isActive}) => isActive ? "text-blue-500 font-bold overline" : "text-blue-500"}>Home</NavLink>
                     </li>
-                    <li>                        
-                        <NavLink to='/about' className={({isActive}) => isActive ? "text-blue-500 font-bold overline" : "text-blue-500"}>About</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/services' className={({isActive}) => isActive ? "text-blue-500 font-bold overline" : "text-blue-500"}>Categories</NavLink>
-                    </li>
+                    
                    
                     {categories.map((category) => (
-                         <li key={category.id} className='text-blue-500'>
-                             {category.name}
+                         <li key={category.id} >
+                            <NavLink to= {`/categoryproducts/${category.id}`} className={({isActive}) => isActive ? "text-blue-500 font-bold overline" : "text-blue-500"}> {category.name}</NavLink>
                          </li>
                      ))}
 
