@@ -3,13 +3,14 @@ import TopBar  from '../components/TopBar'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { Ri24HoursFill, RiBankCard2Fill, RiShoppingCart2Fill, RiStarFill, RiTruckFill, RiVerifiedBadgeFill } from 'react-icons/ri'
-import { useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import {  useParams } from 'react-router-dom'
+import { API_URL, API_URL_PRODUCT } from '../constants/apiConstant'
+import axios from 'axios'
 
 function SingleProduct() {
-    const {state} =useLocation();
-    //access the product object from the state
-    const product = state.product;
+    const {id} =useParams();
+    const [product , setProduct]= useState([]);
 
     const[qty,setQty] = useState(1)
     const increment = () => {
@@ -21,16 +22,24 @@ function SingleProduct() {
         setQty (qty-1)
     }
     }
+
+    useEffect(()=> {
+        axios.get(`${API_URL}/viewproduct/${id}`)
+        .then((response)=>{
+            setProduct(response.data);
+        })
+
+    },[]);
   return (
     <div>
         <TopBar/>
         <Navbar />
         <div className='grid grid-cols-4 gap-4 md:px-32 px-20 py-10'>
             <div>
-                <img src={product.image} alt='product' />
+                <img src={API_URL_PRODUCT + product.photopath } alt='product' />
             </div>
             <div className='col-span-2'>
-                <h1 className='text-2xl font-bold'>{product.title}</h1>
+                <h1 className='text-2xl font-bold'>{product.name}</h1>
                 <div className='flex items-center py-2'>
                     <RiStarFill className='text-yellow-500' />
                     <RiStarFill className='text-yellow-500' />
