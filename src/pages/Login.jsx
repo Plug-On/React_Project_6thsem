@@ -4,8 +4,42 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { RiEyeLine, RiEyeOffFill } from 'react-icons/ri';
 import { useState } from 'react';
+import { API_URL } from '../constants/apiConstant';
+import axios from 'axios';
 function Login() {
    const [showPassword ,setShowPassword] = useState(false);
+   const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleEmailChange = (e) => {
+      setEmail(e.target.value);
+      console.log(e.target.value);
+    }
+    const handlePasswordChange = (e) => {
+      setPassword(e.target.value);
+      //handle logic here
+      console.log(e.target.value);
+    }
+    const handleSubmit = async (e) => { 
+      e.preventDefault();
+      //login logic here
+      const res = await axios.post(`${API_URL}/login`,{
+        email:email,
+        password:password
+      })
+
+      if(res.status == 200){
+        //Handle successful login
+        localStorage.setItem('token', res.data.token)
+       localStorage.setItem('user', JSON.stringify(res.data.user))
+       location.href = '/'
+      } else {
+        //handle login error
+        console.error('Login failed')
+      }
+    }
+
+
    const handleShowPassword = () => {
       setShowPassword (!showPassword);
    }
@@ -17,10 +51,11 @@ function Login() {
         <Navbar/>
       <div className="flex flex-col justify-center items-center my-10 w-1/3 mx-auto bg-gray-100 px-10 py-2 rounded-lg ">
         <h1 className=" pacifico-regular text-center font-bold text-4xl mx-10 ">Login</h1>
-        <input type="text" className=" rounded-lg w-full p-2 my-5 border-2 border-gray-300" name="email" placeholder="Email"/>
+        <form onClick={handleSubmit}>
+        <input type="text" className=" rounded-lg w-full p-2 my-5 border-2 border-gray-300" name="email" placeholder="Email" value={email} required onChange={handleEmailChange}/>
         
-        <div className='relative w-full'>
-        <input type={showPassword ? "text" : "password"} className="rounded-lg w-full p-2 my-5 border-2 border-gray-300" name="password" placeholder="Password"/>
+        <div className='relative w-full' >
+        <input type={showPassword ? "text" : "password"} value={password} className="rounded-lg w-full p-2 my-5 border-2 border-gray-300" name="password" placeholder="Password" required onChange={handlePasswordChange}/>
         <div onClick={handleShowPassword}>
           { showPassword ?
         <RiEyeLine className='absolute top-9 right-3 text-gray-500 cursor-pointer '/> :
@@ -36,6 +71,7 @@ function Login() {
             Don`t have an account? <a href="/register" className="text-blue-500 font-semibold hover:underline hover:text-red-500">Register Now</a>
           </p>
         </div>
+        </form>
       </div>
       <Footer/>
     </div>
