@@ -14,6 +14,12 @@ function Navbar(){
           })
       }, []);
 
+      const handleLogout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        location.href='/';
+
+      }
     return(
         <div className='sticky top-0 z-50'>
             <nav className="flex justify-between items-center px-10 py-1 bg-gray-100 shadow-lg">
@@ -32,7 +38,11 @@ function Navbar(){
                      ))}
 
                     <li>
+                        {localStorage.getItem('token') === null ? (
                         <NavLink to="/login" className={({isActive}) => isActive ? "text-blue-500 font-bold overline" : "text-blue-500"}>Login</NavLink>
+                        ):(
+                            <a className='text-blue-500 cursor-pointer' onClick={handleLogout} > Logout</a>    
+                    )}
                     </li>
 
                 </ul>
