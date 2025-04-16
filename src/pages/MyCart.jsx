@@ -30,11 +30,11 @@ import axios from 'axios'
      const handleRemoveCart = (cartId) => {
       axios.get(`${API_URL}/cart/destroy/${cartId}`,{
         headers :  {
-          Authorization: `Bearer${token}`
+          'Authorization': `Bearer ${token}`
         }
       })
       .then((response) => {
-        alert('Cart removed successfully')
+        toast.success(response.data.message)
         setCarts(carts.filter((cart) => cart.id !== cartId))
       })
       .catch((error) => {
@@ -56,7 +56,7 @@ import axios from 'axios'
              <p className='text-sm'>Total: {cart.product.price * cart.qty}</p>
              <div className='flex flex-col items-end'>
                  <div>
-                 <button className='bg-red-500 text-white px-4 py-2 rounded mt-2' onClick={handleRemoveCart(cart.id)}>Remove</button>
+                 <button className='bg-red-500 text-white px-4 py-2 rounded mt-2' onClick={()=>handleRemoveCart(cart.id)}> Remove </button>
                  </div>
                  <div>
                  <button className='bg-green-500 text-white px-4 py-2 rounded mt-2'>Checkout</button>
