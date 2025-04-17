@@ -8,11 +8,14 @@ import {  useParams } from 'react-router-dom'
 import { API_URL, API_URL_PRODUCT } from '../constants/apiConstant'
 import axios from 'axios'
 import { toast } from 'react-toastify';
+import ProductCard from '../components/ProductCard';
+import { useNavigate } from 'react-router-dom';
 
 function SingleProduct() {
     const {id} =useParams();
     const [product , setProduct]= useState([]);
-
+    const [relatedProduct , setRelatedProducts] = useState([]);
+    const navigate = useNavigate();
     const[qty,setQty] = useState(1)
     const increment = () => {
         setQty (qty+1)
@@ -27,10 +30,18 @@ function SingleProduct() {
     useEffect(()=> {
         axios.get(`${API_URL}/viewproduct/${id}`)
         .then((response)=>{
-            setProduct(response.data);
+            setProduct(response.data.product);
+            console.log('Related:', response.data.relatedproducts);
+            setRelatedProducts(response.data.relatedproducts);
+            
         })
 
-    },[]);
+    },[id]);
+
+    const handleClick = (id) => {
+        navigate(`/product/${id}`);
+      
+    };
 
     const handleAddToCart = () => {
         const token = localStorage.getItem('token')
@@ -55,6 +66,9 @@ function SingleProduct() {
             }
         })
     }
+
+
+    
   return (
     <div>
         <TopBar/>
@@ -91,6 +105,30 @@ function SingleProduct() {
                 <p className='flex items-center font-bold gap-2'><RiBankCard2Fill /> Secure Payments </p>
             </div>
         </div>
+
+        {/* related products */}
+        {relatedProduct.length  > 0 && (
+            <div>
+            <h1 className=" text-center text-2xl font-bold mt-4">Related Products</h1>
+                <div className="grid grid-cols-4 gap-4 px-20 py-5">
+                {
+                    relatedProduct.map((product) =>(
+                        <ProductCard key={product.id} product={product} onClick={()=>handleClick(product.id)}/>
+                ))}
+
+                </div>
+                
+            </div>
+        )}
+
+{relatedProduct.length  == 0 && (
+            <div>
+            <h1 className="text-center text-2xl font-bold m-4"> No Related Products</h1>                              
+            </div>
+        )}
+
+        
+
         <Footer />
     </div>
   )
