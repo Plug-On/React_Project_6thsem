@@ -10,6 +10,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify';
 import ProductCard from '../components/ProductCard';
 import { useNavigate } from 'react-router-dom';
+import Chart from '../components/Chart'
 
 function SingleProduct() {
     const {id} =useParams();
@@ -127,7 +128,7 @@ function SingleProduct() {
             </div>
         )}
 
-        
+        <Chart/>
 
         <Footer />
     </div>
